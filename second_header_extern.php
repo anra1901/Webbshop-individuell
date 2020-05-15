@@ -76,6 +76,10 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
               <span class="counter" id="counter">0</span>
               </div>
             </div>
+            <div class="login">
+              <a href="../user_info/login.php">Logga in</a>
+              <a href="../user_info/register.php">Registrera dig</a>
+            </div>
         </nav>
       </div>
 

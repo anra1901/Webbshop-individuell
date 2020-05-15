@@ -33,6 +33,7 @@
 <script type="application/javascript" src="../order/products-ordered.js"></script>
 <script type="application/javascript" src="../admin/admin-order.js"></script>
 <script type="application/javascript" src="../admin/admin-city-filter.js"></script>
+<script type="application/javascript" src="../user_info/input_validation.js"></script>
 
 
 </body>

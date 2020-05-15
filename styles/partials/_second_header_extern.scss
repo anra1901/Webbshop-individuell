@@ -6,3 +6,21 @@
   background-position: center;
   transition: ease 300ms;
 }
+
+.login {
+  display: block;
+  font-size: 20px;
+  text-align: end;
+  margin-top: 5px;
+
+  a {
+    color: orange;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    &:hover {
+      color: white;
+    }
+  }
+}

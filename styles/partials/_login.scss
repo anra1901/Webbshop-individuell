@@ -1,0 +1,16 @@
+.strength-meter {
+  height: 1rem;
+  width: 40%;
+  border: 3px solid purple;
+  border-radius: 1rem;
+  margin-top: 4px;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: calc(1% * var(--strength, 0));
+    background-color: rgb(148, 28, 148);
+    transition: width 200ms;
+  }
+}

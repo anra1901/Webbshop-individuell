@@ -54,7 +54,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
               </form>
               <div id="searched-result" class="search-result"></div>
             </div>
-
+            
           <ul class="menu-wraper__link-list">
 
 
@@ -75,14 +75,16 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             <li class="menu-wraper__link-item">
               <a class="menu-wraper__links" href="/admin/index.php">ADMIN</a>
             </li>
-
-
           </ul>
             <div class="cart">
             <div class="cart-wrapper">
               <a class="menu-wraper__links" href="../order/orderpage.php"><img src="/images/cart.png" class="cart-img"></a>
               <span class="counter" id="counter">0</span>
               </div>
+            </div>
+            <div class="login">
+              <a href="../user_info/login.php">Logga in</a>
+              <a href="../user_info/register.php">Registrera dig</a>
             </div>
         </nav>
       </div>

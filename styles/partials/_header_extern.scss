@@ -184,3 +184,21 @@
   z-index: 1;
   text-align: center;
 }
+
+.login {
+  display: block;
+  font-size: 20px;
+  text-align: end;
+  margin-top: 5px;
+
+  a {
+    color: orange;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    &:hover {
+      color: white;
+    }
+  }
+}
