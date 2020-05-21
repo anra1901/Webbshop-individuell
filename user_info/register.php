@@ -59,7 +59,7 @@ require_once "../config/db.php";
 
   <div class="register_field-password form-container__box">
     <label for="password">Lösenord:</label><br>
-    <input type="password" name="password" id="password" onblur="" class="form-container__box-input" required>
+    <input type="password" name="password" id="registerPassword" onblur="" class="form-container__box-input" required>
     <br>
     <div class="strength-meter"></div>
     <span class="passwordValidationText"></span>

@@ -1,19 +1,20 @@
 let registerBtn = document.querySelector(".form-container__register-button");
 let loginBtn = document.querySelector(".form-container__login-button");
 let strengthMeter = document.querySelector(".strength-meter");
-let passwordInput = document.querySelector("#password");
+let passwordInput = document.querySelector("#registerPassword");
+let reasonsContainer = document.querySelector(".passwordValidationText");
 
 let isRegisterPhoneValid = false;
-let isPasswordValid = false;
+// let isPasswordValid = false;
 
 function enableSubmitBtnIfFormIsValid() {
-  if (isRegisterPhoneValid && isPasswordValid) {
+  if (isRegisterPhoneValid) {
     registerBtn.disabled = false;
-    loginBtn.disabled = false;
   }
 }
 
 passwordInput.addEventListener("input", updateStrengthMeter);
+updateStrengthMeter();
 
 function updateStrengthMeter() {
   let weaknesses = calculatePasswordStrength(passwordInput.value);
@@ -27,7 +28,7 @@ function updateStrengthMeter() {
     messageElement.innerHTML = weakness.message;
     reasonsContainer.appendChild(messageElement);
   });
-  strengthMeter.style.setProperty("-strength", strength);
+  strengthMeter.style.setProperty("--strength", strength);
 }
 
 function calculatePasswordStrength(password) {

@@ -24,7 +24,7 @@ require_once "../config/db.php";
 
   <div class="login_field-password form-container__box">
     <label for="password">Lösenord:</label><br>
-    <input type="password" name="password" id="password" onblur="" class="form-container__box-input" required>
+    <input type="password" name="password" id="loginPassword" onblur="" class="form-container__box-input" required>
     <br>
     <span class=""></span>
   </div>
