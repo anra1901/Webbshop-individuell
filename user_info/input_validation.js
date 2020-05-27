@@ -1,11 +1,10 @@
-let registerBtn = document.querySelector(".form-container__register-button");
-let loginBtn = document.querySelector(".form-container__login-button");
+// let registerBtn = document.querySelector(".form-container__register-button");
+// let loginBtn = document.querySelector(".form-container__login-button");
 let strengthMeter = document.querySelector(".strength-meter");
-let passwordInput = document.querySelector("#registerPassword");
+let registerPassword = document.querySelector("#registerPassword");
 let reasonsContainer = document.querySelector(".passwordValidationText");
 
 let isRegisterPhoneValid = false;
-// let isPasswordValid = false;
 
 function enableSubmitBtnIfFormIsValid() {
   if (isRegisterPhoneValid) {
@@ -13,11 +12,11 @@ function enableSubmitBtnIfFormIsValid() {
   }
 }
 
-passwordInput.addEventListener("input", updateStrengthMeter);
+registerPassword.addEventListener("input", updateStrengthMeter);
 updateStrengthMeter();
 
 function updateStrengthMeter() {
-  let weaknesses = calculatePasswordStrength(passwordInput.value);
+  let weaknesses = calculatePasswordStrength(registerPassword.value);
 
   let strength = 100;
   reasonsContainer.innerHTML = "";
@@ -79,7 +78,7 @@ function characterTypeWeakness(password, regex, type) {
   if (matches.length <= 2) {
     return {
       message: `Lösenordet bör innehålla fler ${type}`,
-      deduction: 20,
+      deduction: 5,
     };
   }
 }

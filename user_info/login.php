@@ -1,44 +1,33 @@
 <?php
-require_once "../second_header_extern.php";
+session_start();
+
 require_once "../config/db.php";
-?>
 
-</header>
-<main>
-
-<section id="login-form" class="form-container login-container">
-
-<h1 class="page-title heading-text">Logga in</h1>
+$email = $_POST["email"];
+$password = $_POST["password"];
 
 
-<form name="loginForm" action="" method="POST" id=login-form" class="form-container">
+$sql = "SELECT * FROM webshop_users WHERE email=:email";
 
-  <!--Input-fält som kunden fyller i-->
-  <div class="login_field-email form-container__box">
-    <label for="email">E-post:</label><br>
-    <input type="text" name="email" id="email" onblur="validateEmail()" class="form-container__box-input" placeholder="exempel@test.com" required>
-    <br>
-    <span class="emailValidationText"></span>
-  </div>
+$stmt = $db->prepare($sql);
+$stmt->bindParam(':email', $email);
+
+$stmt->execute();
+
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-  <div class="login_field-password form-container__box">
-    <label for="password">Lösenord:</label><br>
-    <input type="password" name="password" id="loginPassword" onblur="" class="form-container__box-input" required>
-    <br>
-    <span class=""></span>
-  </div>
+if(password_verify($password, $row["password"])) {
+    $_SESSION["name"] = $row["name"];
+    $_SESSION["email"] = $row["email"];
+    $_SESSION["telephone"] = $row["telephone"];
+    $_SESSION["street"] = $row["street"];
+    $_SESSION["zipcode"] = $row["zipcode"];
+    $_SESSION["city"] = $row["city"];
+    
+   header("Location: member_page.php");
+} else {
+    header("Location: register.php");
+};
 
-  <div class="form-container__submit">
-    <input type="submit" value="Logga in" class="form-container__login-button" id="form-container__login-button">
-
-  </div>
-
-  <p>Är du inte medlem hos oss? <a href="register.php"><strong>Registrera dig här!</strong></a></p>
-</form>
-
-</section>
-
-<?php
-require_once '../footer.php';
 ?>

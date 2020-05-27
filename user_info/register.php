@@ -8,10 +8,10 @@ require_once "../config/db.php";
 
 <section id="register-form" class="form-container register-container">
 
-<h1 class="page-title heading-text">Dina uppgifter</h1>
+<h1 class="page-title heading-text">Registrera dig</h1>
 
 
-<form name="registerForm" action="" method="POST" id="contact-form" class="form-container">
+<form name="registerForm" action="send_registration.php" method="POST" id="contact-form" class="form-container">
 
   <!--Input-fält som kunden fyller i-->
   <div class="register_field-name form-container__box">
@@ -59,7 +59,7 @@ require_once "../config/db.php";
 
   <div class="register_field-password form-container__box">
     <label for="password">Lösenord:</label><br>
-    <input type="password" name="password" id="registerPassword" onblur="" class="form-container__box-input" required>
+    <input type="password" name="password" id="registerPassword" class="form-container__box-input" required>
     <br>
     <div class="strength-meter"></div>
     <span class="passwordValidationText"></span>

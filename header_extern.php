@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+$name= "";
+$email = "";
+$street = "";
+$zipcode = "";
+$city = "";
+$telephone = "";
+
 require_once "config/db.php";
 
 $stmt = $db->prepare("SELECT * FROM `webshop_categories` 
@@ -82,10 +91,37 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
               <span class="counter" id="counter">0</span>
               </div>
             </div>
-            <div class="login">
-              <a href="../user_info/login.php">Logga in</a>
-              <a href="../user_info/register.php">Registrera dig</a>
-            </div>
+            
+            <?php 
+             $result = "";
+
+             if(isset($_SESSION["name"]) 
+             && isset($_SESSION["email"]) 
+             && isset($_SESSION["street"]) 
+             && isset($_SESSION["zipcode"]) 
+             && isset($_SESSION["city"]) 
+             && isset($_SESSION["telephone"])) {
+
+               $name = $_SESSION["name"];
+               $email = $_SESSION["email"];
+               $street = $_SESSION["street"];
+               $zipcode = $_SESSION["zipcode"];
+               $city = $_SESSION["city"];
+               $telephone = $_SESSION["telephone"];
+
+               $result = "<div class='login'>
+               <a href='../user_info/logout.php'>Logga ut</a>
+           </div>";
+           
+             } else {
+               $result =  "<div class='login'>
+               <a href='../user_info/login_page.php'>Logga in</a>
+             <a href='../user_info/register.php'>Registrera dig</a>
+           </div>";
+             };
+
+             echo $result;
+            ?>
         </nav>
       </div>
 
@@ -93,4 +129,4 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
   </header>
 
-  <main >
+  <main>
