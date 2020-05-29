@@ -11,9 +11,23 @@ $city = $_POST["city"];
 $telephone = $_POST["phone"];
 $password = password_hash($password, PASSWORD_DEFAULT); 
 
+function checkUserExist($db, $email) {
+    $isCreated = false;
+    $sql = 'SELECT * FROM webshop_users WHERE email=:email';
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+        $isCreated = true;
+    } else{
+        $isCreated = false;
+    }
+    return $isCreated;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
 
+    if(!checkUserExist($db, $email)) {
     $sql = "INSERT INTO webshop_users (name, password, email, street, zipcode, city, telephone)
     VALUES (:name, :password, :email, :street, :zipcode, :city, :telephone)";
 
@@ -27,5 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $stmt->bindParam(':telephone', $telephone);
     $stmt->execute();
 
+    $response = "User created";
+    } else {
+    $response = "User already exists";
+    }
+    echo $response;
 endif;
 ?>
