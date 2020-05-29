@@ -1,5 +1,3 @@
-// let registerBtn = document.querySelector(".form-container__register-button");
-// let loginBtn = document.querySelector(".form-container__login-button");
 let strengthMeter = document.querySelector(".strength-meter");
 let registerPassword = document.querySelector("#registerPassword");
 let reasonsContainer = document.querySelector(".passwordValidationText");

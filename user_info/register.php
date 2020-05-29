@@ -9,6 +9,7 @@ require_once "../config/db.php";
 <section id="register-form" class="form-container register-container">
 
 <h1 class="page-title heading-text">Registrera dig</h1>
+<p style="text-align: center;">Är du inte medlem ännu? Bli medlem idag genom att registrera dig här nedan!</p>
 
 
 <form name="registerForm" action="send_registration.php" method="POST" id="contact-form" class="form-container">
