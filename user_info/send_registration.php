@@ -41,9 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $stmt->bindParam(':telephone', $telephone);
     $stmt->execute();
 
-    $response = "User created";
+    $response = "Registrering genomförd!";
     } else {
-    $response = "User already exists";
+    $response = "En användare med den mailadressen existerar redan";
     }
     echo $response;
 endif;
