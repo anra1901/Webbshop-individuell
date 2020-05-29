@@ -13,6 +13,16 @@ function enableSubmitBtnIfFormIsValid() {
 registerPassword.addEventListener("input", updateStrengthMeter);
 updateStrengthMeter();
 
+function calculatePasswordStrength(password) {
+  let weaknesses = [];
+  weaknesses.push(lengthWeakness(password));
+  weaknesses.push(lowercaseWeakness(password));
+  weaknesses.push(uppercaseWeakness(password));
+  weaknesses.push(specialCharactersWeakness(password));
+  weaknesses.push(repeatCharactersWeakness(password));
+  return weaknesses;
+}
+
 function updateStrengthMeter() {
   let weaknesses = calculatePasswordStrength(registerPassword.value);
 
@@ -26,16 +36,6 @@ function updateStrengthMeter() {
     reasonsContainer.appendChild(messageElement);
   });
   strengthMeter.style.setProperty("--strength", strength);
-}
-
-function calculatePasswordStrength(password) {
-  let weaknesses = [];
-  weaknesses.push(lengthWeakness(password));
-  weaknesses.push(lowercaseWeakness(password));
-  weaknesses.push(uppercaseWeakness(password));
-  weaknesses.push(specialCharactersWeakness(password));
-  weaknesses.push(repeatCharactersWeakness(password));
-  return weaknesses;
 }
 
 function lengthWeakness(password) {
